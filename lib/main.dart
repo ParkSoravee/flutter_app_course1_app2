@@ -33,6 +33,11 @@ class MyHomePage extends StatelessWidget {
     ),
   ];
 
+  // String titleInput;
+  // String amountInput;
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +45,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Container(
-        margin: EdgeInsets.all(10),
+        //margin: EdgeInsets.all(10),
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -52,6 +57,42 @@ class MyHomePage extends StatelessWidget {
                 child: Text('CHART!'),
               ),
               elevation: 5,
+            ),
+            Card(
+              elevation: 5,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Title',
+                      ),
+                      controller: titleController,
+                      // onChanged: (val) {
+                      //   titleInput = val;
+                      // },
+                    ),
+                    TextField(
+                      decoration: InputDecoration(
+                        //hintText: '0.00',
+                        labelText: 'Amount',
+                      ),
+                      controller: amountController,
+                      // onChanged: (val) => amountInput = val,
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        print(titleController.text);
+                        print(amountController.text);
+                      },
+                      textColor: Colors.purple,
+                      child: Text('Add Transaction'),
+                    ),
+                  ],
+                ),
+              ),
             ),
             Column(
               children: transactions.map((tx) {
