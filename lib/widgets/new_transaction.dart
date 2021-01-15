@@ -29,6 +29,7 @@ class _NewTransactionState extends State<NewTransaction> {
     widget.addTx(
       enteredTitle,
       enteredAmount,
+      _selectedDates,
     );
     Navigator.of(context).pop();
   }
@@ -42,8 +43,9 @@ class _NewTransactionState extends State<NewTransaction> {
     ).then(
       (pickedDate) {
         if (pickedDate == null) return;
-        setState(() { //tell flutter update****
-        _selectedDates = pickedDate;
+        setState(() {
+          //tell flutter update****
+          _selectedDates = pickedDate;
         });
       },
     );
