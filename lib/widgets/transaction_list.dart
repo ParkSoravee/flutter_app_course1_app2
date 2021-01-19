@@ -61,7 +61,7 @@ class TransactionList extends StatelessWidget {
             },
             itemCount: transactions.length,
             scrollDirection: Axis.vertical,
-            reverse: true,
+            //reverse: true,
 
           );
   }
